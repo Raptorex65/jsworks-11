@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+
+
+
+<form>
+  <label for="month">Dogdugun Ayı Gir (between 1 and 12):</label>
+  <input type="number" id="month" name="month" min="1" max="12">
+  <label for="day">Dogdugun Gun (between 1 and 31):</label>
+  <input type="number" id="day" name="day" min="1" max="31">
+  <label for="sorgu">Sorgulama Sonucu:</label>
+  <input type="button" id="sorgu" onclick="burcunuBul()">
+</form>
+
+
+
+
+
+
+
+</body>
+</html>
