@@ -2,6 +2,7 @@
 let carBrand = 'BMW';
 let carColor = 'Red';
 let carYear = 2020;
+let customerForLong = 10
 
 
 if (((carBrand == 'BMW') && (carColor == 'Red') && (2010 >=carYear && carYear<=2019)) || ((carBrand == 'BMW') && (carColor == 'Black') && (carYear == 2020))){
@@ -12,7 +13,9 @@ if (((carBrand == 'BMW') && (carColor == 'Red') && (2010 >=carYear && carYear<=2
     console.log('Arabayı iceri al cırak');
 }   else {console.log ('Ostimde Hasan Ustaya git hocam');
 }
-
+if (customerForLong == 10){
+        console.log ('Arabayı iceri al cırak');
+}
    
         
         
