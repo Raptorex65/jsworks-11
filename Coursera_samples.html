@@ -1,0 +1,202 @@
+FORM IN DIFFERENT TYPES
+<form>
+  <fieldset>
+    <legend>Input Types</legend>
+    <label>Name: <input type="text" id="name" name="name" /></label>
+
+    <label>Email: <input type="email" name="email" /> </label>
+
+    <label>Password: <input type="password" name="pass" /></label>
+
+    Radio Buttons<br />
+    <label><input type="radio" name="sex" value="male" checked />Male</label>
+
+    <label><input type="radio" name="sex" value="female" />Female</label>
+
+    Checkboxes<br />
+
+    <label>
+      <input type="checkbox" name="contact1" value="Bike" />Contact me via
+      email</label
+    >
+
+    <label>
+      <input type="checkbox" name="contact2" value="Bike" />Contact me via
+      phone</label
+    >
+
+    <label
+      >Number: <input type="number" name="numberInput" min="1" max="5"
+    /></label>
+
+    <label
+      >Range: <input type="range" name="rangeInput" min="1" max="10"
+    /></label>
+
+    <label
+      >Color: <input type="color" name="colorInput" min="1" max="10"
+    /></label>
+
+    <label>Date: <input type="date" name="dateInput" /></label>
+
+    <label>URL: <input type="url" name="urlInput" /></label>
+
+    <input type="submit" value="Click Here" />
+  </fieldset>
+</form>
+
+FORM WITH PATTERN
+<form>
+  zip code with pattern:
+  <input type="text" name="zip_codeP" pattern="[0-9]{5}" required /><br />
+
+  zip code with numbers:
+  <input
+    type="number"
+    name="zip_codeN"
+    min="00000"
+    max="99999"
+    required
+  /><br />
+
+  <input type="submit" />
+</form>
+----------------------------------------
+FORM WITH VALIDATION
+<form>
+  <label
+    >Preferred email address:
+    <input
+      type="email"
+      id="email_addr"
+      name="email1"
+      value="me@me.com"
+      required
+  /></label>
+
+  <label
+    >Repeat email address:
+    <input
+      type="email"
+      id="email_repeat"
+      name="email2"
+      required
+      onchange="check()"
+  /></label>
+
+  <input type="submit" value="Confirm Emails!" />
+</form>
+
+<script>
+  function check() {
+    var email1 = document.getElementById("email_addr");
+    var email2 = document.getElementById("email_repeat");
+    if (email1.value != email2.value) {
+      alert("The two emails must match!!");
+    }
+  }
+</script>
+
+--------------------------
+FORM WITH VALIDATION wıth RETURN
+<form>
+    <label>Preferred email address:
+            <input type="email" id="email_addr" name="email1" value = "me@me.com" required></label>
+  
+        <label>Repeat email address:
+            <input type="email" id="email_repeat" name="email2" required onchange="return check()"></label>
+  
+    <input type = 'submit' value = "Confirm Emails!" onclick = "return check();">
+  </form>  
+
+  <script>function check() {
+    var email1 = document.getElementById('email_addr');
+    var email2 = document.getElementById('email_repeat');
+            if ( email1.value != email2.value) {
+                 alert("The two emails must match!!");
+       return false;
+        }
+}</script>
+
+----------------------------------------
+EASE Checkboxes
+
+<form>  
+  Favorite Foods<br/>
+  <label><input type="checkbox" name="food"  value = "pizza"> Pizza</label><br/>
+  
+  <label><input type="checkbox" name="food" value="Chips" >Chips</label><br/>
+  
+  <label><input type="checkbox" name="food" value="Kale">Kale</label><br/>
+  
+  
+  <input type = "submit">
+</form>
+  
+-----------------------------------
+RADIO BUTTONS
+
+<form>
+  <input type="radio" name="gender" value = "male">Male<br/>
+  
+  <input type="radio" name="gender" value="female">Female<br/>
+  
+  <input type = "submit">
+</form>
+
+RADIO BUTTONS TWO DIFFERENT GROUPS
+
+<form>
+  Gender<br/>
+  <label><input type="radio" name="gender" value = "male"> Male</label><br/>
+  <label><input type="radio" name="gender" value="female">Female</label><br/><br/>
+  
+  Favorite Food<br/>
+  <label><input type="radio" name="food"  value = "pizza"> Pizza</label><br/>
+  <label><input type="radio" name="food" value="Chips" checked="true">Chips</label><br/>
+  <label><input type="radio" name="food" value="Kale">Kale</label><br/>
+  
+  <input type = "submit">
+</form>
+
+
+----------------------------------------
+
+CHECKBOX EXAMPLE - WITH FUNCTION FOR NICKNAME
+
+
+</head>
+<body>
+	<form action="http://www.intro-webdesign.com" method = "GET">
+		<fieldset>
+			  <legend>Form Verification</legend>
+  <label for ="fName">First Name:</label>
+			  <input type = "text" name = "fName" id = "fName" required><br/>
+  			<label for = "lName">Last Name:</label>
+			  <input type = "text" name = "lName" id = "lName" required><br/>
+			  <label for = "yesNick">Nickname?:</label>
+			  <input id="yesNick" name="yesNick" type="checkbox" value="yes" onchange= "nicknameFunction()"/>	<br/>
+			    
+  <div id = "nick">
+				    <label for = "nickname">Nickname:</label>
+				    <input type = "text" name = "nickname" id = "nickname"><br/>
+			  </div>
+  <input type = "submit" value = "Verify"/>
+ </fieldset>
+</form>
+</body>
+</html>
+
+<script>function nicknameFunction(){
+  if (document.getElementById('yesNick').checked){
+    document.getElementById('nick').style.display="inline";
+    document.getElementById('nickname').setAttribute('required',true);
+  }
+  else{ 
+    document.getElementById('nickname').removeAttribute('required');
+    document.getElementById('nick').style.display="none";
+  }
+}</script>
+
+
+

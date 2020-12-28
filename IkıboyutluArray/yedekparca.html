@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="yedekparca.js"></script>
+</head>
+<body>
+    <form>
+        <fieldset>
+          <legend>Yedek Parca Veri Girisi</legend>
+          <label for="yedek">Yedek Parca Ismi:</label>
+          <input type="text" name="Name" id="yedek" required />
+          <br />
+          <label for="code">Yedek parca kodu:</label>
+          <input
+            type="text"
+            name="zip"
+            id="code"
+            pattern="[0-9]{5}"
+            required
+          /><br />
+        </fieldset>
+
+
+
+</body>
+</html>
+
