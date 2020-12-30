@@ -7,11 +7,8 @@ Araba parcalari ise bir array icinde verilecektir.
 4. Her parcanin basina KEREMAG_ eklenecektir.
 5. Her parcanin sonuna ise parcanin sisteme girildigi tarih eklenecektir. 
 (Date nesnesini kullanarak tarih ve saat konulmasi yeterlidir) 
-    
-    document.getElementById("yedek").value.innerHTML;
 */
    
-
 let yedekesya = [
     "lastik pirelli R16" , 
     "lastik goodyear R18", 
@@ -21,35 +18,17 @@ let yedekesya = [
     "motoryagı Castrol2050", 
     "4650"
 ];
-/* let number = 0;
-for (let i=0; i<yedekesya.length; i++){
-    request = yedekesya[i];
-    number = 
-    console.log();
-}
- */
-yedekesya.foreach(yedekesya.match(/\d+/g);
 
+let upper = (value) => value.toUpperCase();// Büyük harfe dönüştürür
+let extract = (value) => value.replace(/[0-9]/g, ''); // Rakamları cıkartır
+let reverse = (value) => value.split("").reverse().join(""); // Parca isimlerini tersine cevirir
+let attach = (value) => "KEREMAG__"+ value; // Baslangıca kelime ekler
+let lastdate = (value) => value + "*" + Date(); //Tarih ekler
 
-//Büyük harfe dönüştürme (UPPERCASE)//
-/* let request = [];
-for (let i=0; i<yedekesya.length; i++){
-    request = yedekesya[i].toUpperCase();
-    console.log(request);
-} 
-
-
-
-*/
-
-
-    
-
-    
-
-
-
-
-
-
-
+//Map fonksiyonu array içindeki elemanlara sırayla dolasarak yukardaki fonksiypnları uygular.
+let result = yedekesya.map(upper) 
+                      .map(extract)
+                      .map(reverse)
+                      .map(attach)
+                      .map(lastdate);
+console.log (result);
