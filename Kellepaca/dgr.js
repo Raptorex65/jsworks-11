@@ -23,16 +23,16 @@ ornek: “asik veysel“ ==> “Asik Veysel“
 ----- */
 
 
-/* 1.PROBLEMİN CÖZÜMÜ ASAGIDADIR:
+// 1.PROBLEMİN CÖZÜMÜ ASAGIDADIR:
 const str1 = 'asık'
 const str2 = 'veysel'
 
 const caps = str1.charAt(0).toUpperCase() + str1.slice(1) +" "+ str2.charAt(0).toUpperCase() + str2.slice(1);
 console.log(caps);
-*/
 
 
-/* 2. PROBLEMİN KODU AŞAGIDADIR;
+
+// 2. PROBLEMİN KODU AŞAGIDADIR;
 
 let numbersArray = [] , max = 100;
 
@@ -54,5 +54,4 @@ console.log (array2.join(","), '\n'+array3.join(","), '\n'+array4.join(","), '\n
 +array5.join(","), '\n'+array6.join(","), '\n'+array7.join(","), '\n'+array8.join(","), '\n'
 +array9.join(","), '\n'+array10.join(","), '\n'+array11.join(","), '\n');
 
-*/
 
