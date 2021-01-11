@@ -9,7 +9,7 @@ Araba parcalari ise bir array icinde verilecektir.
 (Date nesnesini kullanarak tarih ve saat konulmasi yeterlidir) 
 */
    
-let yedekesya = [
+const yedekesya = [
     "lastik pirelli R16" , 
     "lastik goodyear R18", 
     "jantkapagı 22545R17", 
@@ -26,7 +26,7 @@ let attach = (value) => "KEREMAG__"+ value; // Baslangıca kelime ekler
 let lastdate = (value) => value + "*" + Date(); //Tarih ekler
 
 //Map fonksiyonu array içindeki elemanlara sırayla dolasarak yukardaki fonksiypnları uygular.
-let result = yedekesya.map(upper) 
+const result = yedekesya.map(upper) 
                       .map(extract)
                       .map(reverse)
                       .map(attach)

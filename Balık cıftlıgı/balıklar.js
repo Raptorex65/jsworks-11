@@ -126,40 +126,39 @@ const fishFarm = [
         saleLocations: ["ZH", "VD", "BS", "TI", "SG"],
     },  
 ]
-// Stok miktari 500 kg uzerinde olan baliklar filtrelendi
-let stockOverFıveHundred = fishFarm.filter(function(weight) {
+// 1) Stok miktari 500 kg uzerinde olan baliklar filtrelendi
+const stockOverFıveHundred = fishFarm.filter(function(weight) {
     return weight.stockVolumeInKg > 500;
 });
 
-let filteredItems = stockOverFıveHundred.map((names) => {
+const filteredItems = stockOverFıveHundred.map((names) => {
     return names.fishType;
 });
     console.log(`Stok Miktari 500 kg uzerinde olan baliklar: ${filteredItems}`);
 
-
-//Fiyat araligi 9Fr. ile 12 Fr. arasindaki baliklar listelendi
-let fishBetweenPrice = fishFarm.filter(function(range){
+// 2) Fiyat araligi 9Fr. ile 12 Fr. arasindaki baliklar listelendi
+const fishBetweenPrice = fishFarm.filter(function(range){
     return 9 < range.price < 12;
 });
-let fishNames = fishBetweenPrice.map((names) => {
+const fishNames = fishBetweenPrice.map((names) => {
     return names.fishType;
 });
     console.log(`Fiyati 9 ile 12 Fr arasinda olan baliklar: ${fishNames}`); 
+    
 
+// 3) Sadece Bern'de ve kis sezonu satilan baliklar listelendi
 
-// Sadece Bern'de ve kis sezonu satilan baliklar
-
-let seasonFishes = fishFarm.filter((framed) => {
+const seasonFishes = fishFarm.filter((framed) => {
     return framed.season === "Winter" && framed.saleLocations.includes("BE")
 });
 
-let fnames= seasonFishes.map((names) => { return names.fishType;
+const fnames= seasonFishes.map((names) => { return names.fishType;
 });
 
 console.log(`Sadece Bern'de ve kis sezonu satilan baliklar: ${fnames}`);
 
-// Son kullanma tarihlerine gore baliklari siralayiniz. (Son kullanma tarihi yaklasan baliklar once gosterilmelidir)
 
+// 4) Son kullanma tarihlerine gore baliklari siralayiniz. (Son kullanma tarihi yaklasan baliklar once gosterilmelidir)
 function lastConsumeDate (date, days){
     const lastDate = new Date(Number(date));
     lastDate.setDate(date.getDate()+ days);
@@ -173,18 +172,45 @@ let endDate =() => { fishFarm.map(fish => {
 })
 .sort((a, b) => a.enddate - b.enddate)
 .map(a => {
-    console.log(`Balik adi:${a.name} ==> Son Kullanma Tarihi ${a.enddate}`)
-})
+    console.log(`Balik adi:${a.name} ==> Son Kullanma Tarihi ${a.enddate}`);
+    
+/*     document.querySelector("#containerfourth").innerHTML= 
+ */})
 }
+endDate();
 
-endDate()
+    
+// 5) Avrupa Birligi'nden (AB) gelen ve fiyati 10Fr dan dusuk olan baliklari alfabetik siraya gore siralayiniz.
+
+const euCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Republic of Cyprus", "Czech Republic", 
+    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", 
+    "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", 
+    "Spain", "Sweden"];
+
+/* const sortFishes = [];
+
+function compareCountry () { 
+    if (fishFarm.saleLocations === euCountries && origin.price < 10){
+        fishFarm.fishType.sort((a, b) => a.fishNames - b.fishNames)
+        .map(a => {console.log(`Balik adi:${a.name}`);
+        
+    
+
+compareCountry(); */
+
+// 6) Toplam balik stoku ne kadardir?
+
+let sum = 0;
+for (let i = 0; i < fishFarm.length; i++) {
+  sum += fishFarm[i].stockVolumeInKg
+}
+console.log( "Sum of the stockvolume of the total fishes is : " + sum ); 
+    
 
 
-
-
-// Avrupa Birligi'nden (AB) gelen ve fiyati 10Fr dan dusuk olan baliklari alfabetik siraya gore siralayiniz.
-
-let fishPriceArray = []
+// 7) En pahali olan balik hangisidir? 
+// BIRINCI YOL
+/* let fishPriceArray = []
 let mostExpensiveFish = [];
 
 let expensiveFish = () => { fishFarm.map(fprice => { fishPriceArray.push(fprice.price)})
@@ -196,74 +222,61 @@ let expensiveFish = () => { fishFarm.map(fprice => { fishPriceArray.push(fprice.
     }
 }
 
-expensiveFish();
+expensiveFish(); */
 
-console.log(mostExpensiveFish);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function 1- originCountry EU ulkeleri olan baliklari bul
-// Function-2 originCountry EU ulkeleri olan ve fiyati 10 Frdan dusuk olanlari listele.
-
-/* const euOrıgınFıshes = [];
-const euCountries = []
-
-function origin (name){
-    euCountries.map fishFarm.originCountry 
-}
+/* console.log(`En pahali olan balik:`+mostExpensiveFish);
  */
 
+// IKINCI YOL
 
-
-// Toplam balik stoku ne kadardir?
-/* let stockTotal = 0;
-for (let index = 0; index < fishFarm.length; index++) {
-    for (let k = 0; k< stockVolumeInKg.length; k++) {
-          stockTotal +=  fishFarm.stockVolumeInKg
-    return stockTotal;
-    }
+const maxPrice = fishFarm.reduce((p, c) => p.price > c.price ? p : c);
   
-}
-console.log(stockTotal); */
-/* let stockTotal = fishFarm.stockVolumeInKg.map((total) => total += fishFarm.stockVolumeInKg);
-console.log(stockTotal); 
- */
+console.log(`En pahali olan balik: ${maxPrice.fishType}, Fiyati: ${maxPrice.price}`);
 
+
+// 8) En uzun sureli durabilen baliklar hangi ulkeden gelmektedir?
+
+function getFishesLongestStanding(pArray){
+    const maxDurationInDays = pArray.sort(function(a, b){return b.durationInDays - a.durationInDays})
+    return pArray.filter(item => item.durationInDays == maxDurationInDays)
+}
+
+const listOfFishLongestStanding = getFishesLongestStanding(fishFarm)
+console.log("En uzun sureli durabilen baliklarin ulkesinin listesi :", listOfFishLongestStanding )
+
+
+// 9) Kis ve sonbahar sezonu icin swiss romande region'da satilan baliklarin ortalama fiyati nedir?
+/* const romanderegion = ["BE", "FR", "VD", "VS", "GE", "JU", "NE"];
+
+function swissCantonFishes(pArray){
+    if (pArray.saleLocations === romanderegion) {
+        let totalprice =+ totalprice.price;
+        let averagePrice = totalprice / 
+
+    }
+}
+const averagepriceofishes = swissCantonFishes(fishFarm)
+console.log("Kis ve sonbahar sezonu icin swiss romande region'da satilan baliklarin ortalama fiyati"+ ${"averagepriceofishes"})
+ */
+//10) Ticino Kantonu icin stokta toplam ne kadar balik mevcuttur?
+
+function totalStockForTicino(pArray){
+    const stockTI = pArray.filter(stock => stock.saleLocations.includes("TI"))  
+    return stockTI.reduce((total, stock) => total + stock.stockVolumeInKg, 0)
+}
+let ticino = totalStockForTicino(fishFarm);
+console.log(`Ticino Kantonu icin stokta bulunan toplam balik miktari:`+ticino); 
+
+
+//11) Yazlik sezonda cikan ve AB disindan gelen ve de ZH'de satilan baliklarin
+// ortalama gramajini bulunuz?
+
+
+const sesonFishes = fishFarm.filter((framed) => {
+    return framed.season === "Summer" && framed.originCountry !== euCountries && framed.saleLocations.includes("ZH")
+});
+
+const result= sesonFishes.map((names) => { return names.fishType;
+});
+
+console.log(`Yazlik sezonda cikan ve AB disindan gelen ve de ZH'de satilan baliklar: ${result}`)
