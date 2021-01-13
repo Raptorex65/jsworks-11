@@ -1,0 +1,39 @@
+
+
+#battery{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right:500px;
+    width: 400px;
+    height:750px;
+
+}
+
+#battery.image{
+    margin:auto;
+
+
+}
+
+#green{
+width: 150px, 200px;
+background-color:green;
+border: solid black 2px;
+
+}
+
+#orange{
+width: 150px, 200px;
+background-color:orange;
+border: solid black 2px;
+    
+
+}
+
+#red{
+width: 150px, 200px;
+background-color:red;
+border: solid black 2px;
+    
+
+}

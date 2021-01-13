@@ -187,16 +187,19 @@ const euCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Republic of C
     "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", 
     "Spain", "Sweden"];
 
-/* const sortFishes = [];
 
-function compareCountry () { 
-    if (fishFarm.saleLocations === euCountries && origin.price < 10){
-        fishFarm.fishType.sort((a, b) => a.fishNames - b.fishNames)
-        .map(a => {console.log(`Balik adi:${a.name}`);
-        
-    
+/* function compareCountry (pFarm, pOther) { 
+    let compareResult = [];
+    for (let index= 0; index < pFarm.length; index++){
+        for (let k=0; k< pOther.length; k++){
+            if (pFarm[i].saleLocations === pOther[k] && pFarm[i].price < 10){
+                compareResult.push(pFarm.fishType);
+        }
+    }   
+}    
+const sortFishes = compareCountry(fishFarm, euCountries); 
+console.log(sortFishes); */
 
-compareCountry(); */
 
 // 6) Toplam balik stoku ne kadardir?
 
@@ -206,8 +209,6 @@ for (let i = 0; i < fishFarm.length; i++) {
 }
 console.log( "Sum of the stockvolume of the total fishes is : " + sum ); 
     
-
-
 // 7) En pahali olan balik hangisidir? 
 // BIRINCI YOL
 /* let fishPriceArray = []
@@ -233,11 +234,18 @@ const maxPrice = fishFarm.reduce((p, c) => p.price > c.price ? p : c);
   
 console.log(`En pahali olan balik: ${maxPrice.fishType}, Fiyati: ${maxPrice.price}`);
 
+// UCUNCU YOL
+const max = Math.max(...fishFarm.map(({ price }) => price)), object = fishFarm.find(({ price }) => price === max);
+
+console.log(max);
+console.log(object);
+
+
 
 // 8) En uzun sureli durabilen baliklar hangi ulkeden gelmektedir?
 
 function getFishesLongestStanding(pArray){
-    const maxDurationInDays = pArray.sort(function(a, b){return b.durationInDays - a.durationInDays})
+    const maxDurationInDays = pArray.sort(function(a, b){return b.durationInDays - a.durationInDays})[0].durationInDays
     return pArray.filter(item => item.durationInDays == maxDurationInDays)
 }
 

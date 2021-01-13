@@ -112,24 +112,6 @@ const fishFarm = [
     },  
 ]
 
-function lastConsumeDate (date, days){
-    const lastDate = new Date(Number(date));
-    lastDate.setDate(date.getDate()+ days);
-    return lastDate;
-}
-
-let endDate =() => { fishFarm.map(fish => {
-    return { "name" : fish.fishType,
-            "enddate": lastConsumeDate (fish.entryDate, fish.durationInDays)
-    }
-})
-.sort((a, b) => a.enddate - b.enddate)
-.map(a => {
-    console.log(`Balik adi:${a.name} ==> Son Kullanma Tarihi ${a.enddate}`)
-})
-}
-endDate()
-
 
 // Avrupa Birligi'nden (AB) gelen ve fiyati 10Fr dan dusuk olan baliklari alfabetik siraya gore siralayiniz.
 
@@ -138,21 +120,32 @@ const euCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Republic of C
     "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", 
     "Spain", "Sweden"];
 
+function compareCountry (pFarm, pOther) { 
+    for (let index= 0; index < pFarm.length; index++){
+        for (let k=0; k< pOther.length; k++){
+            if (pFarm[i].saleLocations === pOther[k]){
+                 return true
+        }
+    }   
+    return false
 
-function compareCountry (firstCountry) { 
-    let euFishesandCountries = [];
-    for (let index= 0; index < euCountries.length; index++){
-            if (euCountries.value === fishFarm.originCountry){
-                return firstCountry.fishType && firstCountry.originCountry
+}    
+const sortFishes = compareCountry(fishFarm, euCountries); 
+console.log(sortFishes);
+}
+
+
+
+
+/* for (var i = 0, len = a.length; i < len; i++) { 
+    for (var j = 0, len2 = b.length; j < len2; j++) { 
+        if (a[i].name === b[j].name) {
+            b.splice(j, 1);
+            len2=b.length;
         }
     }
 }
-compareCountry();
-console.log (firstCountry);
-
-
-
-
+ *///&& pFarm[i].price < 10
 
 /* function priceComparison (range) {
     let nameFishes = [];
@@ -170,4 +163,3 @@ priceComparison (); */
  */
 
 
-document.querySelector("#containersecond").innerHTML= fishNames.join(",");
