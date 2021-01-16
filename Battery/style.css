@@ -1,39 +1,76 @@
-
-
-#battery{
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right:500px;
-    width: 400px;
-    height:750px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
 }
-
-#battery.image{
+.battery{
     margin:auto;
+    padding-top: 50px;
+    padding-left:20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    }
+
+/*DEFAULT STYLE OF THE BATTERIES*/
+.battery img.empty{
+    margin:auto;
+    width:250px;
+    height:350px;
+}
+.battery img.red{
+    margin:auto;
+    width:250px;
+    height:350px;
+
+}
+
+.battery img.orange{
+    margin:auto;
+    width:250px;
+    height:350px;
+
+}
+
+.battery img.green{
+    margin:auto;
+    width:250px;
+    height:350px;
+}
+/*AFTER CLICK EVENT*/
+.emptyBlock{
+    visibility: hidden;
+    transition: all 0.8s ease;
 
 
 }
 
-#green{
-width: 150px, 200px;
-background-color:green;
-border: solid black 2px;
+.redBlock{
+    visibility: visible;
+    display: inline-block;
+    transform: translateX(30deg);
+    transition: all 1s ease;
+    position: relative;
+    right: 270px;
+}
+
+.orangeBlock{
+    visibility: visible;
+    display: inline-block;
+    transform: translateX(30deg);
+    transition: all 1s ease;
+    position: relative;
+    right: 270px;
 
 }
 
-#orange{
-width: 150px, 200px;
-background-color:orange;
-border: solid black 2px;
-    
-
-}
-
-#red{
-width: 150px, 200px;
-background-color:red;
-border: solid black 2px;
-    
+.greenBlock{
+    visibility: visible;
+    display: inline-block;
+    transform: translateX(30deg);
+    transition: all 1s ease;
+    position: relative;
+    right: 270px;
 
 }
