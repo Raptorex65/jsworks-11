@@ -9,22 +9,24 @@
   <body>
     <header>
       <h1>Battery Simulation</h1>
+      <div>
+        <h1 class="counter-display">(..)</h1>
+        <button class="counter-plus" type="submit">CHARGE+</button>
+        <button class="counter-minus" type="submit">DECHARGE-</button>
+      </div>
+  
     </header>
 
     <div class="battery">
-        <img class="empty" src="./images/clipart_blackbattery.png" alt="Battery-image" />
+        <img class="black" src="./images/clipart_blackbattery.png" alt="Battery-image" />
         <img class="red" src="./images/clipart_redbattery.png" alt="red"/>
         <img class="orange" src="./images/clipart_orangebattery.png" alt="orange"/>
         <img class="green" src="./images/clipart_greenbattery.png" alt="green"/>
 
     </div>
 
-    <div>
-      <button class="flip" type="submit">CHARGE+</button>
-      <button class="flop" type="submit">DECHARGE-</button>
-    </div>
 
-    
+
 
     <script src="./app.js"></script>
   </body>

@@ -1,81 +1,76 @@
 
 //VARIABLES
-const buttonFlip = document.querySelector(".flip");
-const buttonFlop = document.querySelector(".flop");
+const blackBattery = document.querySelector(".black"); 
 const redBattery = document.querySelector(".red");
 const orangeBattery = document.querySelector(".orange");
 const greenBattery = document.querySelector(".green");
-const emptyBattery = document.querySelector(".empty"); 
 
-//EVENTLISTENER
+//BUTTONS AND COUNTER
+const buttonFlip = document.querySelector(".counter-plus");
+const buttonFlop = document.querySelector(".counter-minus");
+const counterDisplayElem = document.querySelector('.counter-display');
+let count = 0;
+
+//EVENTLISTENERS
+
 buttonFlip.addEventListener("click", chargethetank); 
 buttonFlop.addEventListener("click", dechargethetank);
 
-//FUNCTIONS
-function chargethetank(e){
-    emptyBattery.classList.add("emptyBlock");
-    redBattery.classList.add("redBlock");
-    orangeBattery.classList.add("orangeBlock");
-    greenBattery.classList.add("greenBlock");
 
-    const clickTime = 0;
-    clickTime=e.foreach() => {clicktime += 1);
-    if (clickTime === 1){
-    emptyBattery.classList.add("emptyBlock");
-    redBattery.classList.add("emptyBlock");
-    orangeBattery.classList.add("redBlock");
-    greenBattery.classList.add("orangeBlock");
-    clickTime++;
-
-    if (clickTime === 2){
-    emptyBattery.classList.add("emptyBlock");
-    redBattery.classList.add("emptyBlock");
-    orangeBattery.classList.add("emptyBlock");
-    greenBattery.classList.add("redBlock");
-    clickTime++;
-   
-    }
-    if (clickTime === 3){
-    emptyBattery.classList.add("emptyBlock");
-    redBattery.classList.add("emptyBlock");
-    orangeBattery.classList.add("emptyBlock");
-    greenBattery.classList.add("emptyBlock");
-        
-    }
-}
-
-function dechargethetank(){
-    emptyBattery.classList.add("emptyBlock");
-    redBattery.classList.add("emptyBlock");
-    orangeBattery.classList.add("emptyBlock");
-    greenBattery.classList.add("emptyBlock");
-
-}
-dechargethetank()
-
-
-    let counterDisplayElem = document.querySelector('.counter-display');
-    let counterMinusElem = document.querySelector('.counter-minus');
-    let counterPlusElem = document.querySelector('.counter-plus');
-    
-    let count = 0;
-    
-    updateDisplay();
-    
-    counterPlusElem.addEventListener("click",()=>{
+buttonFlip.addEventListener("click",()=>{
         count++;
-        updateDisplay();
-    }) ;
-    
-    counterMinusElem.addEventListener("click",()=>{
+    updateDisplay();
+}) ;
+
+buttonFlop.addEventListener("click",()=>{
         count--;
-        updateDisplay();
-    });
-    
-    function updateDisplay(){
-        counterDisplayElem.innerHTML = count;
-    };
-}   
+   updateDisplay();
+});
+
+//FUNCTIONS
+
+//COUNTER DISPLAY
+function updateDisplay(){
+    counterDisplayElem.innerHTML = `Battery Level: ${count}` ;
+    if (count>4 || count<0){
+        counterDisplayElem.innerHTML = "Ooops! Only For Level";
+    }
+};
+
+//BATTERY CHARGE
+function chargethetank(){
+
+        if (count === 0){
+            blackBattery.classList.add("blackLevel");
+        }
+        if (count === 1){
+            redBattery.classList.add("redLevel");
+        }
+        if (count === 2){
+            orangeBattery.classList.add("orangeLevel");
+        }
+        if (count === 3){
+            greenBattery.classList.add("greenLevel");
+        }
+    }
+//BATTERY DECHARGE
+function dechargethetank(){
+    updateDisplay();
+
+    if (count === 4){
+        greenBattery.style.display = "none";
+    } 
+
+    if (count === 3){
+        orangeBattery.style.display = "none";
+    }
+    if (count === 2){
+        redBattery.style.display = "none";
+    }
+    if (count === 1){
+        blackBattery.style.display = "none";
+    }
+}
 
 
 
