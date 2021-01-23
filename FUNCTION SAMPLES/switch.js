@@ -2,6 +2,7 @@
 function mySample() {
     var text;
     var favNumber = prompt("What's your favorite number?", "3");
+    
     switch(favNumber) {
      case "1":
        text = "Well yeah number one !";
