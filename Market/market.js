@@ -76,8 +76,8 @@ const productList = [
     }
 ]
 
-//Event Listener
-document.addEventListener("DOMContentLoaded", drawTable)
+document.addEventListener('DOMContentLoaded', drawTable)
+
 
 function drawTable(tbody) {
     var tbody = document.getElementById("matchdata");
@@ -96,7 +96,7 @@ function drawTable(tbody) {
     for (let i = 0; i < productList.length; i++) {
         tr = tbody.insertRow(tbody.rows.length);
         td = tr.insertCell(tr.cells.length);
-
+        tr.classList.add('trClass')
         for(let key in productList[i]){
             td.innerHTML = productList[i][key];
             td = tr.insertCell(tr.cells.length);
@@ -107,26 +107,52 @@ function drawTable(tbody) {
             button.value = 'BUY';
             button.className = 'btn btn-success';
             td.appendChild(button);
-            button.addEventListener("click", addItemToCart);
+            button.addEventListener('click', addToCartClicked)
         }
     }
 }
 
+
+function addToCartClicked() {
+    var tbody = document.getElementById("matchdata");
+    for (let i = 0; i < tbody.rows.length; i++) {
+        const firstCol = tbody.rows[i].cells[0]; 
+        const secondCol = tbody.rows[i].cells[1]; 
+        const fourthCol = tbody.rows[i].cells[3]; 
+
+    const title = firstCol.innerText
+    const price = secondCol.innerText
+    const imageSrc = fourthCol.src
+
+    addItemToCart(title, price, imageSrc)
+
+    }
+}
+
+
 function addItemToCart(title, price, imageSrc) {
+    
     const cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     const cartItems = document.getElementsByClassName('cart-items')[0]
     cartItems.append(cartRow)
     const cartRowContents = `
-        <div class="cart-item cart-column">
+        <div class="cart-item">
             <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
             <span class="cart-item-title">${title}</span>
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-danger" type="button">REMOVE</button>
+            <button id="button" class=" button btn btn-danger" type="button">REMOVE</button>
         </div>`
     cartRow.innerHTML = cartRowContents
+    
 }
 
+
+
+function removeCartItem(event) {
+    const buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+}

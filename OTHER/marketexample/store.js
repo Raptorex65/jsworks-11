@@ -40,13 +40,6 @@ function removeCartItem(event) {
     updateCartTotal()
 }
 
-function quantityChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
 
 function addToCartClicked(event) {
     var button = event.target
@@ -85,6 +78,14 @@ function addItemToCart(title, price, imageSrc) {
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
 }
 
 function updateCartTotal() {
