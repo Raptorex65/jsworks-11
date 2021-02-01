@@ -1,3 +1,6 @@
+
+/*
+
 function renderClock(){
     // saatin son halini ekrana basmak icin yazdiginiz kodunuz ;)
    }
@@ -13,35 +16,6 @@ function renderClock(){
        timerHandler = setInterval(renderClock, 1000); // zaman sayacini yine baslat
    })
    
-   
-   
-   
-     function myFunction() {
-       
-   
-       let x = document.querySelector(".secondTime");
-       let inputPlace = document.querySelector(".inputTime")
-       x = "Deneme"
-       x.value= inputPlace.innerText
-     }
-   
-     
-     document.addEventListener("onload", defaultTime);
-
-     function defaultTime (){
-         let zurichTime = document.getElementById("default");
-        zurichTime.value = currentTime.innerText;
-     
-     }
-     var date = "September 21, 2011 00:00:00";
-     var targetTime = new Date(date);
-     var timeZoneFromDB = 8.00; //time zone value from database
-     //get the timezone offset from local time in minutes
-     var tzDifference = timeZoneFromDB * 60 + targetTime.getTimezoneOffset();
-     //convert the offset to milliseconds, add to targetTime, and make a new Date
-     var offsetTime = new Date(targetTime.getTime() + tzDifference * 60 * 1000);
-     
-     
 
 -5 300
 -4 240
@@ -57,3 +31,5 @@ function renderClock(){
 6 360
 7 420
 8 480
+
+*/
