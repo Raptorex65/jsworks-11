@@ -5,35 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
       integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
       <h1>Registration Form</h1>
     </header>
     <div class="container">
-        <form>
-            <input type="text" class="todo-input" />
-            <button class="todo-button" type="submit">
-              <i class="fas fa-plus-square"></i>
-            </button>
-        </form>
-
+      <form onsubmit="return false;">
+        <label for="formGroupExampleInput" class="form-name"
+          >Name
+          <input id="firstname" placeholder="Max" />
+        </label>
+        <label for="formGroupExampleInput" class="form-lastname"
+          >Surname
+          <input id="lastname" placeholder="Max" />
+        </label>
+        <label for="formGroupExampleInput" class="form-age"
+          >Age
+          <input id="age" type="number" placeholder="45" />
+        </label>
+        <br />
+        <button id="addbutton" type="submit">ADD</button>
+      </form>
     </div>
 
-      <div class="select">
-          
-      </div>
+    <div class="select">
+      <br />
+      <h2 class="section-header">System Storage Deck</h2>
 
-    <script src="./app.js"></script>
+      <div id="result"></div>
+    </div>
+
+    <script src="./kayit.js"></script>
   </body>
 </html>

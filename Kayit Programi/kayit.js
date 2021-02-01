@@ -3,11 +3,50 @@
 // Programda kayit olan ogrenci listesi ise sayfanın sag tarafında gösterilecektir. 
 // Gerektiginde kayit silinebilecektir. Listenin en altında ise toplam ogrenci sayisi gösterilecektir.
 
+const personList = [];
 
-document.querySelector("#addbutton").addEventListener("click", recordData);
+document.querySelector("#addbutton").addEventListener("click", getPerson);
 
+function getPerson(){
+    let firstName = document.querySelector("#firstname").value;
+    let lastName = document.querySelector("#lastname").value;
+    let age = document.querySelector("#age").value;
+    personList.push({firstName, lastName, age});
+    createPersonRows();
+}
+
+function createPersonRows(){
+    let personRows = 
+    personList.map(data => 
+        `<tr id= "trow">
+            <td>${data.firstName}</td>
+            <td>${data.lastName}</td>
+            <td>${data.age}</td>
+            <td id="rowindex">${indexTable()}</td>
+        </tr>`).join("");
+
+    let tableData = 
+    `<table border=1>
+    <thead class="light">
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Age</th>
+    <th>Total</th>
+    </thead>
+    ${personRows}
+    </table>`
+
+    document.querySelector("#result").innerHTML = tableData;
+
+    indexTable();
+}
+
+function indexTable(){
+    return personList.length
+}
 
 /*
+// DAHA ONCE KOMUTLA OLUSTURULAN YAPI ICIN PRATIK CALISMA 
 function addToCartClicked(event) {
     event.preventDefault();
     let inputForm = event.target;
@@ -43,33 +82,6 @@ function addToCartClicked(event) {
 
 }
 */
-const personList = [];
-
-function recordData(){
-    let nameData = document.querySelector("#firstname").value;
-    let surnameData = document.querySelector("#lastname").value;
-    let ageData = document.querySelector("#age").value;
-
-    personList.push({nameData, surnameData, ageData});
-    console.log("personList");
-    
-
-}
 
 
-/*
-function totalNumber(){
-    let totalDiv = document.getElementById("recordTotal");
-    let totalInputForms = 0
-    let recordTotalContents = `
-    <div class="input-group">
-    <span class="input-group-text">${totalInputForms}</span>
-    <input type="number" aria-label="First name" class="form-control" value="">
-    </div>    `
-    totalDiv.appendChild(recordTotalContents);
-    for(i=0; i < inputForm.length; i++){
-        totalInputForms =+ inputForm[i].length
-        return totalInputForms
-    }
-}
-*/
+
