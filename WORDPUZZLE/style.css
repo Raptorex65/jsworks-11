@@ -1,0 +1,119 @@
+/*
+.wrapper{
+    margin:100px auto;
+    width:200px;
+    height:50px;
+    box-shadow: 1px 1px 1px 1px lightslategray;
+    display:flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.wrapper div{
+    width:50px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.wrapper div span{
+    border: 1px solid black;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    background-color: burlywood;
+}
+*/
+
+.drop-zone{
+    width: 100px;
+    height:100px;
+    box-shadow: 1px 1px 1px 1px black;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px;
+    background-color: coral;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.drop-zone-over{
+    opacity: 0.5;
+}
+
+
+#syllable-one, #syllable-two, #syllable-three, #syllable-four{
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    background-color: cadetblue;
+    padding: 10px 10px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#syllable-two{
+    background-color: rgb(69, 144, 63);
+}
+
+#syllable-three{
+    background-color: rgb(48, 48, 145);
+}
+
+#syllable-four{
+    background-color: rgb(206, 115, 29);
+}
+
+/*
+.container{
+    display:flex;
+    align-items: flex-start;
+    justify-content:space-evenly
+
+}
+
+
+.drop-zone--over{
+    opacity: 0.5;
+}
+
+.word-part{
+    width: 50px;
+    height: 50px;
+    background: rgb(76, 141, 221);
+}
+
+#random{
+    width: 100px;
+    height: 30px;
+    background: orange;
+}
+#check{
+    width: 100px;
+    height: 30px;
+    background: springgreen;
+}
+
+.word{
+    width: 110px;
+    height: 75px;
+    margin: auto;
+    background: tomato;
+    font-size: 50px;
+    font-weight: 700;
+
+}
+
+.word-parts{
+    display:flex;
+    align-items: flex-start;
+    justify-content:space-between
+
+}
+
+*/

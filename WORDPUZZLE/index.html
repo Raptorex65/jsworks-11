@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=h1, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Drag and Drop Word Puzzle</h1>
+    <div class="wrapper">
+      <div class="drop-zone">
+        <span draggable="true" id="syllable-one">KA</span>
+      </div>
+      <div class="drop-zone">
+        <span draggable="true" id="syllable-two">BA</span>
+      </div>
+      <div class="drop-zone">
+        <span draggable="true" id="syllable-three">KU</span>
+      </div>
+      <div class="drop-zone">
+        <span draggable="true" id="syllable-four">LAK</span>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <div>
+      <span>
+        <button id="random" type="button">RANDOM</button>
+      </span>
+
+      <span>
+        <button id="check" type="button">CHECK</button>
+      </span>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"
+      integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="drag.js"></script>
+  </body>
+</html>
