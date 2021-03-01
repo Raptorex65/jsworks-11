@@ -15,13 +15,17 @@ for (var i = 0; i < numArr.length; i++) {
 console.log( "javascript- Sum of the array value is :- " + sum ); 
 
 var numArr = [10, 20, 30, 40] // sums to value = 100
-var sum = numArr.reduce(function(a, b){return a+b;})
+var sum = numArr.reduce(function(a, b){
+  return a+b;
+})
 console.log( "javascript- Sum of the array value is :- " + sum ); 
 
 
 var numArr = [10, 20, 30, 40] // sums to value = 100
 var sum = 0;
-numArr.map(function(x){sum+=x})
+numArr.map(function(x){
+  sum+=x
+})
 console.log( "javascript- Sum of the array value is :- " + sum ); 
 
 
