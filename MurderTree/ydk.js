@@ -14,7 +14,7 @@ let fifthValue = document.querySelector(".victim-fifth").value
 resultValue.classList.add("hidden");
 
 
-<ul class="list-group ">
+`<ul class="list-group ">
 <li class="list-group-item">
 
   <input class="form-check-input me-1 victim-first" type="checkbox" 
@@ -52,3 +52,4 @@ let secondVictimData = `<span id="victim">${customerLarry[i].targetId} </span>`
 
 
         && enteredNumber.value == objectofAll.resultofMultiplication
+

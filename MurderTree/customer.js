@@ -1,9 +1,9 @@
 
     const customerList = [
     {
-    customer: "Larry Bird",
-    odemeYaptimi: true,
-    victim: [
+        customer: "Larry Bird",
+        odemeYaptimi: true,
+        victim: [
                 {   
                 targetId: "Frank Houston",
                 killed: true,
@@ -209,10 +209,6 @@
     }
 ]  
 
-
-
-
-
 const firstCustomer = document.querySelector("button.customer-first");
 firstCustomer.addEventListener("click", persontoKillData);
 const secondCustomer = document.querySelector("button.customer-second");
@@ -224,63 +220,111 @@ fourthCustomer.addEventListener("click", persontoKillData);
 const fifthCustomer = document.querySelector("button.customer-fifth");
 fifthCustomer.addEventListener("click", persontoKillData);
 
-
-
-function createpersontoKill(pEvent){
-
-let containerDiv = document.createElement("div");
-containerDiv.classList.add("bridge")
-let createpersontoKill = 
-
-containerDiv.innerHTML = createpersontoKill;
-showtargetList.append(containerDiv);
-};
-
-
-
-
-
-
 function persontoKillData(pEvent){
     if(pEvent.target.className === "list-group-item list-group-item-action customer-first"){
-    customerList[0].victim.foreach((object, index => { array[index] = object[index].targetId;
-        let victimBlock = 
-        `<button type="button" class="list-group-item list-group-item-action victim">      
-        <input class="form-check-input me-1 victim-first" type="checkbox" 
-        value="" aria-label="...">
-        <span id="victim-one" >${object[index].targetId} </span>
-        </button>
-        <button type="button" class="list-group-item list-group-item-action victim">      
-        <input class="form-check-input me-1 victim-first" type="checkbox" 
-        value="" aria-label="...">
-        <span id="victim-one" >${object[index].targetId} </span>
-        </button>
-        <button type="button" class="list-group-item list-group-item-action victim">      
-        <input class="form-check-input me-1 victim-first" type="checkbox" 
-        value="" aria-label="...">
-        <span id="victim-one" >${object[index].targetId} </span>
-        </button>
-        <button type="button" class="list-group-item list-group-item-action victim">      
-        <input class="form-check-input me-1 victim-first" type="checkbox" 
-        value="" aria-label="...">
-        <span id="victim-one" >${object[index].targetId} </span>
-        </button>
-        <button type="button" class="list-group-item list-group-item-action victim">      
-        <input class="form-check-input me-1 victim-first" type="checkbox" 
-        value="" aria-label="...">
-        <span id="victim-one" >${object[index].targetId} </span>
-        </button>`
+        for(i=0; i< customerList[0].victim.length; i++ ){
+            let victimMap = new Map(Object.entries(customerList[0].victim[i]));
+            let targetIds = []
+            targetIds.push(victimMap.get('targetId'))
+            console.log(targetIds)
 
-        return victimBlock
-    }); 
+            let victimBlock = 
+            `<button type="button" class="list-group-item list-group-item-action victim">      
+            <span id="victim-one" >${targetIds[0]} </span>
+            </button>
+            <input class="form-check-input me-1 victim-first" type="checkbox" name="targetInput"
+            value="" aria-label="...">`
+
+                
+            let containerDiv = document.createElement("div")
+            containerDiv.classList.add("bridge")
+            containerDiv.innerHTML = victimBlock;
+            let showtargetList = document.querySelector("div.container-persontokill")
+            showtargetList.append(containerDiv);
+
+            let adressListener = document.querySelector("button.victim");
+            adressListener.addEventListener("click", (event)=>{
+                let adresses = []
+                adresses.push(victimMap.get('adresses'))
+                console.log(adresses)
+                for(i=0; i<adresses.length;i++){
+
+                    const adressBlock = `
+                    <div class="input-group mb-3 ">
+                    <div class="input-group-text mt-0">
+                        <input class="form-check-input mt-0 victim-address" name="addressInput" type="checkbox" value="" aria-label="Checkbox for following text input">
+                        </br>
+                        <span id="victim-address">   ${adresses[i][i]} </span>
+                    </div>
+                    </div>`
+
+                    let adressDiv = document.createElement("div");
+                    adressDiv.innerHTML = adressBlock;
+                    let adressHtmlDiv = document.querySelector("div.victim-address");
+                    adressHtmlDiv.append(adressDiv);
+
+            
+                    }
+
+                    document.querySelector("input[type=checkbox][name=addressInput]").addEventListener("change",  (event) =>{
+                        if (event.target.checked) {
+                            document.querySelector("span#victim-address").style.color ="red";
+                            document.querySelector("span#victim-address").style.textDecoration = "line-through";      
+                        } else {
+                            document.querySelector("span#victim-address").style.color ="";
+                            document.querySelector("span#victim-address").style.textDecoration = "";
+                        }
+                    }, false);
 
 
-        let showtargetList = document.querySelector("div.container-persontokill");
-        showtargetList.innerHTML = victimBlock;
+                });
+            }
+            document.querySelector("input.victim-first").addEventListener("change",  (event) =>{
+                if (event.target.checked) {
+                    document.querySelector("span#victim-address").style.color ="red";
+                    document.querySelector("span#victim-address").style.textDecoration = "line-through";      
+                    document.querySelector("span#victim-one").style.color ="red";
+                    document.querySelector("span#victim-one").style.textDecoration = "line-through";      
+                    
+                } else {
+                    document.querySelector("span#victim-address").style.color ="";
+                    document.querySelector("span#victim-address").style.textDecoration = "";
+                    document.querySelector("span#victim-one").style.color ="";
+                    document.querySelector("span#victim-one").style.textDecoration = "";      
+                }
+          }, false);
 
 
 
-   }else if (pEvent.target.className === "list-group-item list-group-item-action customer-second"){
+
+
+
+    }else if (pEvent.target.className === "list-group-item list-group-item-action customer-second"){
+        for(i=0; i< customerList[0].victim.length; i++ ){
+            let victimMap = new Map(Object.entries(customerList[1].victim[i]));
+            let targetIds = []
+            let adresses = []
+            targetIds.push(victimMap.get('targetId'))
+            adresses.push(victimMap.get('adresses'))
+            console.log(targetIds)
+            console.log(adresses)
+
+            let victimBlock = 
+            `<button type="button" class="list-group-item list-group-item-action victim">      
+            <input class="form-check-input me-1 victim-first" type="checkbox" 
+            value="" aria-label="...">
+            <span id="victim-one" >${targetIds[0]} </span>
+            </button>`
+    
+            let containerDiv = document.createElement("div")
+            containerDiv.classList.add("bridge")
+            containerDiv.innerHTML = victimBlock;
+            let showtargetList = document.querySelector("div.container-persontokill")
+            showtargetList.append(containerDiv);
+        }
+
+
+
 
    
     }else if (pEvent.target.className === "list-group-item list-group-item-action customer-third"){
@@ -297,21 +341,3 @@ function persontoKillData(pEvent){
 
 
 
-/*
-adressofVictim();
-
-function adressofVictim(){
-    console.log("ADRESS TO KILL")
-const adressBlock = `
-    <div class="p-2 bd-highlight">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
-        <div class="input-group-text">
-          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-        <input type="text" id="place" value="">
-          </div>
-      </div>
-    </div>`
-
-}
-*/
