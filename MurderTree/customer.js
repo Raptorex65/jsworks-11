@@ -266,25 +266,16 @@ function persontoKillData(pEvent){
             
                     }
 
-                    document.querySelector("input[type=checkbox][name=addressInput]").addEventListener("change",  (event) =>{
-                        if (event.target.checked) {
-                            document.querySelector("span#victim-address").style.color ="red";
-                            document.querySelector("span#victim-address").style.textDecoration = "line-through";      
-                        } else {
-                            document.querySelector("span#victim-address").style.color ="";
-                            document.querySelector("span#victim-address").style.textDecoration = "";
-                        }
-                    }, false);
-
+                   
 
                 });
             }
             document.querySelector("input.victim-first").addEventListener("change",  (event) =>{
                 if (event.target.checked) {
-                    document.querySelector("span#victim-address").style.color ="red";
-                    document.querySelector("span#victim-address").style.textDecoration = "line-through";      
-                    document.querySelector("span#victim-one").style.color ="red";
-                    document.querySelector("span#victim-one").style.textDecoration = "line-through";      
+                    document.querySelectorAll("#victim-address").style.color ="red";
+                    document.querySelectorAll("#victim-address").style.textDecoration = "line-through";      
+                    document.querySelectorAll("#victim-one").style.color ="red";
+                    document.querySelectorAll("#victim-one").style.textDecoration = "line-through";      
                     
                 } else {
                     document.querySelector("span#victim-address").style.color ="";
