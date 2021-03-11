@@ -9,3 +9,4 @@ console.log(mathFunctions.bolme(a, b), mathFunctions.carpma(a, b),
             mathFunctions.cikarma(a, b), mathFunctions.toplama(a, b))
 
 
+
